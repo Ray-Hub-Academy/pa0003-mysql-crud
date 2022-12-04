@@ -1,0 +1,22 @@
+express --view=ejs mysql-curd
+cd mysql-curd
+npm i
+npm i -g raymvc
+raymvc create
+npm i dotenv
+delete bin
+app.js > create express server
+---------------------
+require('dotenv').config();
+const port = process.env.PORT;
+app.listen(port, function(err){
+  if (err) {
+    console.log(err);
+  }
+  console.log('server is running on port : '+port);
+});
+-------------------------
+package.json > start script : [nodemon app.js] delete[node bin/www]
+create .env
+.env> PORT = 3050[any port]
+npm start

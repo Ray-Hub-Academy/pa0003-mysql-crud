@@ -1,0 +1,20 @@
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var list = ``;
+        $.get('/customer/list', function (results) {  
+            var data = results.data;
+            if(results.code == 200){
+                data.forEach((value, index) => {
+                    list += `
+                        <li class="list-group-item">${value.customerName}<\li>
+                    `;
+                });
+                $('#list').html(list);
+            }else{
+                alert(results.message);
+            }
+        });
+    });
+</script>
